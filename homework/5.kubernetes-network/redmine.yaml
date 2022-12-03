@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redmine
+  namespace: gb4
+spec:
+  selector:
+    matchLabels:
+      app: redmine
+  template:
+    metadata:
+      labels:
+        app: redmine
+    spec:
+      containers:
+      - name: redmine
+        image: redmine:4.1.1
+        ports:
+        - containerPort: 3000
+          hostPort: 8001
+        env:
+          - name: REDMINE_DB_POSTGRES
+            value: database
+          - name: REDMINE_DB_USERNAME
+            value: testuser
+          - name: REDMINE_DB__PASSWORD
+            value: testpassword
+          - name: REDMINE_DB_DATABASE
+            value: testdatabase
+          - name: REDMINE_SECRET_KEY_BASE
+            value: supersecretkey
+          - name: POSTGRES_HOST_AUTH_METHOD
+            value: trust
+
