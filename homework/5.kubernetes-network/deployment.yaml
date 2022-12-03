@@ -5,6 +5,7 @@ metadata:
   name: postgres
   labels:
     name: postgres
+  namespace: gb5
 spec:
   replicas: 1
   selector:

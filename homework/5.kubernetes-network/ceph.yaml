@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: ceph
+  namespace: gb5
 spec:
   accessModes:
     - ReadWriteOnce
